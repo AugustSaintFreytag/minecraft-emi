@@ -14,13 +14,6 @@ public class ConfigSearch {
 		MinecraftClient client = MinecraftClient.getInstance();
 
 		field = new ConfigSearchWidgetField(client.textRenderer, x, y, width, height, EmiPort.literal(""));
-		field.setChangedListener(s -> {
-			if (s.length() > 0) {
-				field.setSuggestion("");
-			} else {
-				field.setSuggestion(I18n.translate("emi.search_config"));
-			}
-		});
 		field.setSuggestion(I18n.translate("emi.search_config"));
 	}
 
@@ -36,6 +29,17 @@ public class ConfigSearch {
 
 		public ConfigSearchWidgetField(TextRenderer textRenderer, int x, int y, int width, int height, Text text) {
 			super(textRenderer, x, y, width, height, text);
+		}
+
+		@Override
+		public void setFocused(boolean focused) {
+			if (!focused) {
+				setSuggestion(I18n.translate("emi.search_config"));
+			} else {
+				setSuggestion("");
+			}
+
+			super.setFocused(focused);
 		}
 
 		@Override
