@@ -202,7 +202,6 @@ public class EmiSearchWidget extends TextFieldWidget {
 						lastClick = System.currentTimeMillis();
 					}
 				} else if (button == 1) {
-					this.setText("");
 					this.setFocused(true);
 				}
 			}

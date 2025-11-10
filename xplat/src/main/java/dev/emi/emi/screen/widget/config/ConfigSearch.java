@@ -41,10 +41,10 @@ public class ConfigSearch {
 		@Override
 		public boolean mouseClicked(double mouseX, double mouseY, int button) {
 			if (button == 1 && isMouseOver(mouseX, mouseY)) {
-				this.setText("");
 				EmiPort.focus(this, true);
 				return true;
 			}
+
 			return super.mouseClicked(mouseX, mouseY, button);
 		}
 	}
